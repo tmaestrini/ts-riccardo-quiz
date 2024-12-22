@@ -4,9 +4,9 @@ export const Canvas: React.FC = () => {
   return (
     <FluentProvider theme={webLightTheme}>
       <div className="flex w-full flex-col">
-        <div className="w-full mb-4">
+        <div className="w-full">
           <Card>
-            {/* Full width content */}
+            Frage
           </Card>
         </div>
         <div className="flex w-full gap-4">
