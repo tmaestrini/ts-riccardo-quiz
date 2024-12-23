@@ -1,7 +1,7 @@
 import { FluentProvider, webDarkTheme } from '@fluentui/react-components';
 import React from 'react';
 import { AppContext } from '../../context/AppContext';
-import { Answer } from '../Question/Answer';
+import { AnswerBlock } from '../Question/Answer';
 import { NavigationButtons } from './NavigationButtons';
 import { QuestionBlock } from '../Question/Question';
 
@@ -21,7 +21,7 @@ export const Canvas: React.FC = () => {
         <QuestionBlock currentQuestion={currentQuestion} />
         <div className='answerBlock'>
           {currentQuestion?.answers.map((answer, index) => (
-            <Answer
+            <AnswerBlock
               currentQuestionIndex={currentQuestionIndex}
               index={index}
               answer={answer}

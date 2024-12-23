@@ -3,7 +3,7 @@ import { CheckmarkCircleFilled } from '@fluentui/react-icons';
 import { tokens } from '@fluentui/react-components';
 
 
-type AnswerProps = {
+type AnswerBlockProps = {
   currentQuestionIndex: number;
   index: number;
   answer: string;
@@ -11,7 +11,7 @@ type AnswerProps = {
   isCorrectAnswer: boolean;
 }
 
-export const Answer: React.FC<AnswerProps> = (props) => {
+export const AnswerBlock: React.FC<AnswerBlockProps> = (props) => {
   const { currentQuestionIndex, index, answer, correctAnswer, isCorrectAnswer } = props;
 
   const CorrectAnswerIcon = (): JSX.Element => {
