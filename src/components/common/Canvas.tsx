@@ -1,37 +1,15 @@
-import { FluentProvider, Card, Button, CardHeader, Text, webDarkTheme } from '@fluentui/react-components';
+import { FluentProvider, Card, CardHeader, Text, webDarkTheme } from '@fluentui/react-components';
 import React from 'react';
 import { AppContext } from '../../context/AppContext';
 import { CheckmarkCircleFilled } from '@fluentui/react-icons';
 import { tokens } from '@fluentui/react-components';
 
-// import audioSource from '../../assets/mixkit-trumpet-fanfare-2293.wav';
-import audioSource from '../../assets/background-music-224633.mp3';
+import { NavigationButtons } from './NavigationButtons';
 
 export const Canvas: React.FC = () => {
-  const audio = new Audio(audioSource);
-
   const context = React.useContext(AppContext);
-  const { totalQuestions, currentQuestion, currentQuestionIndex, setQuestion } = context;
-  const [correctAnswer, setCorrectAnswer] = React.useState(false);
-
-  function setNextQuestion() {
-    if (currentQuestionIndex < totalQuestions - 1) {
-      setCorrectAnswer(false);
-      setQuestion(currentQuestionIndex + 1);
-    }
-  }
-
-  function setPreviousQuestion() {
-    if (currentQuestionIndex > 1) {
-      setCorrectAnswer(false);
-      setQuestion(currentQuestionIndex - 1);
-    }
-  }
-
-  function showCorrectAnswer() {
-    setCorrectAnswer(true);
-    audio.play();
-  }
+  const { currentQuestion, currentQuestionIndex } = context;
+  const [correctAnswer, showCorrectAnswer] = React.useState(false);
 
   function isCorrectAnswer(answer: string): boolean {
     return currentQuestion?.correctAnswer === answer
@@ -90,10 +68,9 @@ export const Canvas: React.FC = () => {
                 </div>
               </Card>
             ))}
-          </div>          <Button onClick={setPreviousQuestion}>Vorherige Frage</Button>
-          <Button onClick={setNextQuestion}>Nächste Frage</Button>
-          <Button appearance='primary' onClick={showCorrectAnswer}>Auflösen</Button>
+          </div>
 
+          <NavigationButtons showCorrectAnswer={showCorrectAnswer} />
         </div>
       }
     </FluentProvider>
