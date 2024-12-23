@@ -40,7 +40,7 @@ export const Answer: React.FC<AnswerProps> = (props) => {
         </div>
       }
     />
-    <div className='question'>
+    <div className='answer'>
       <div style={{ margin: '10px auto' }}>
         <Text weight="semibold" size={800}>
           {answer ?? `Antwort ${index + 1} nicht vorhanden`}

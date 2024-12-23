@@ -52,7 +52,7 @@
   margin: 1em 0;
 }
 
-.questionBlock {
+.answerBlock {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
@@ -60,7 +60,7 @@
   padding: 1rem;
   margin: 2rem 0;
 
-  .question {
+  .answer {
     display: flex;
     flex-direction: column;
     align-items: center;
