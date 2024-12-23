@@ -70,10 +70,9 @@ export const Canvas: React.FC = () => {
                   justifyContent: 'center',
                   alignItems: 'center'
                 }}
-
-                key={index}
+                key={`${currentQuestionIndex}-${index}`}
                 orientation='vertical'
-                className={correctAnswer && isCorrectAnswer(answer) ? 'blinkingCard' : ''}>
+                className={correctAnswer && isCorrectAnswer(answer) ? 'blinkingCard' : 'card-animate'}>
                 <CardHeader
                   header={
                     <div style={{ width: '100%', textAlign: 'center' }}>
