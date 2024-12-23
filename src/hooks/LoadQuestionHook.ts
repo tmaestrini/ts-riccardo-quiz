@@ -6,7 +6,7 @@ export default function LoadQuestionsHook(startQuestionByNumber: number) {
   const [questions, setQuestions] = useState<Question[]>([]);
 
   useMemo(() => {
-    async function fetchData() {
+    async function readDataFromCSV() {
       const questions = await fetch('../questions/questions.csv');
       const csvText = await questions.text();
       const rows = csvText.split('\n').filter(row => row.trim());
@@ -28,7 +28,7 @@ export default function LoadQuestionsHook(startQuestionByNumber: number) {
       setQuestions(filteredQuestions);
     }
 
-    fetchData();
+    readDataFromCSV();
   }, [startQuestionByNumber]);
 
   return {
