@@ -50,7 +50,7 @@ export const Canvas: React.FC = () => {
             <Card>
               <CardHeader header={
                 <div style={{ width: '100%', textAlign: 'center', margin: '10px auto' }}>
-                  <Text weight='bold' size={900}>{currentQuestion.number} {currentQuestion.question}</Text>
+                  <Text weight='bold' size={900}>({currentQuestion.number}) {currentQuestion.question}</Text>
                 </div>
               } />
             </Card>
