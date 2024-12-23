@@ -1,5 +1,6 @@
-import { Button } from "@fluentui/react-components"
 import React from "react";
+import { Button } from "@fluentui/react-components"
+import { ChevronLeftRegular, ChevronRightRegular } from '@fluentui/react-icons';
 import { AppContext } from "../../context/AppContext";
 
 import audioSource from '../../assets/background-music-224633.mp3';
@@ -35,9 +36,9 @@ export const NavigationControl: React.FC<QuestionControlProps> = (props) => {
 
   return (
     <div className="navigationControl">
-      <Button onClick={setPreviousQuestion}>Vorherige Frage</Button>
-      <Button onClick={setNextQuestion}>Nächste Frage</Button>
-      <Button appearance='primary' onClick={showCorrectAnswer}>Auflösen</Button>
+      <Button onClick={setPreviousQuestion} icon={<ChevronLeftRegular />}>Vorherige Frage</Button>
+      <Button appearance='primary' onClick={showCorrectAnswer}>Korrekte Antwort anzeigen</Button>
+      <Button onClick={setNextQuestion} icon={<ChevronRightRegular />} iconPosition="after">Nächste Frage</Button>
     </div>
   )
 
