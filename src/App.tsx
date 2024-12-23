@@ -5,13 +5,16 @@ import { AppContextProvider } from './context/AppContext'
 
 function App() {
   return (
-    <div style={{ width: '100%', height: '100%' }}>
-      <AppContextProvider>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </AppContextProvider>
-    </div>
+    <>
+      <div className="app-container" />
+      <div className="content-wrapper">
+        <AppContextProvider>
+          <Routes>
+            <Route path="/" element={<Home />} />
+          </Routes>
+        </AppContextProvider>
+      </div>
+    </>
   )
 }
 

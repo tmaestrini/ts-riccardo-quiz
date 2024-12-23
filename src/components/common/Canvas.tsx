@@ -1,4 +1,4 @@
-import { FluentProvider, webLightTheme, Card, Button, CardHeader, Text } from '@fluentui/react-components';
+import { FluentProvider, Card, Button, CardHeader, Text, webDarkTheme } from '@fluentui/react-components';
 import React from 'react';
 import { AppContext } from '../../context/AppContext';
 import { CheckmarkCircleFilled } from '@fluentui/react-icons';
@@ -42,15 +42,15 @@ export const Canvas: React.FC = () => {
   }
 
   return (
-    <FluentProvider theme={webLightTheme}>
+    <FluentProvider theme={webDarkTheme} style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>
 
       {currentQuestion &&
-        <div className="flex w-full flex-col">
+        <div>
           <div className="w-full">
             <Card>
               <CardHeader header={
                 <div style={{ width: '100%', textAlign: 'center', margin: '10px auto' }}>
-                  <Text weight='bold' size={800}>{currentQuestion.number} {currentQuestion.question}</Text>
+                  <Text weight='bold' size={900}>{currentQuestion.number} {currentQuestion.question}</Text>
                 </div>
               } />
             </Card>
@@ -59,6 +59,18 @@ export const Canvas: React.FC = () => {
           <div className='questionBlock'>
             {currentQuestion.answers.map((answer, index) => (
               <Card
+                style={{
+                  width: '100%',
+                  minHeight: '150px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(10px)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center'
+                }}
+
                 key={index}
                 orientation='vertical'
                 className={correctAnswer && isCorrectAnswer(answer) ? 'blinkingCard' : ''}>
