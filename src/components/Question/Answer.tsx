@@ -7,12 +7,12 @@ type AnswerBlockProps = {
   currentQuestionIndex: number;
   index: number;
   answer: string;
-  correctAnswer?: boolean;
+  showCorrectAnswer?: boolean;
   isCorrectAnswer: boolean;
 }
 
 export const AnswerBlock: React.FC<AnswerBlockProps> = (props) => {
-  const { currentQuestionIndex, index, answer, correctAnswer, isCorrectAnswer } = props;
+  const { currentQuestionIndex, index, answer, showCorrectAnswer, isCorrectAnswer } = props;
 
   const CorrectAnswerIcon = (): JSX.Element => {
     return <CheckmarkCircleFilled fontSize={100} style={{ verticalAlign: 'baseline' }} color={tokens.colorPaletteLightGreenForeground1} />
@@ -32,7 +32,7 @@ export const AnswerBlock: React.FC<AnswerBlockProps> = (props) => {
     }}
     key={`${currentQuestionIndex}-${index}`}
     orientation='vertical'
-    className={correctAnswer && isCorrectAnswer ? 'blinkingCard' : 'card-animate'}>
+    className={showCorrectAnswer && isCorrectAnswer ? 'blinkingCard' : 'card-animate'}>
     <CardHeader
       header={
         <div style={{ width: '100%', textAlign: 'center' }}>
@@ -46,7 +46,7 @@ export const AnswerBlock: React.FC<AnswerBlockProps> = (props) => {
           {answer ?? `Antwort ${index + 1} nicht vorhanden`}
         </Text>
       </div>
-      {correctAnswer && isCorrectAnswer && <CorrectAnswerIcon />}
+      {showCorrectAnswer && isCorrectAnswer && <CorrectAnswerIcon />}
     </div>
   </Card>)
 }
