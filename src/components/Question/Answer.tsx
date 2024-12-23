@@ -3,7 +3,7 @@ import { CheckmarkCircleFilled } from '@fluentui/react-icons';
 import { tokens } from '@fluentui/react-components';
 
 
-interface AnswerProps {
+type AnswerProps = {
   currentQuestionIndex: number;
   index: number;
   answer: string;
