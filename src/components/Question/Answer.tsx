@@ -3,7 +3,7 @@ import { CheckmarkCircleFilled } from '@fluentui/react-icons';
 import { tokens } from '@fluentui/react-components';
 
 
-interface QuestionProps {
+interface AnswerProps {
   currentQuestionIndex: number;
   index: number;
   answer: string;
@@ -11,7 +11,7 @@ interface QuestionProps {
   isCorrectAnswer: boolean;
 }
 
-export const Question: React.FC<QuestionProps> = (props) => {
+export const Answer: React.FC<AnswerProps> = (props) => {
   const { currentQuestionIndex, index, answer, correctAnswer, isCorrectAnswer } = props;
 
   const CorrectAnswerIcon = (): JSX.Element => {

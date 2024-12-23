@@ -3,7 +3,7 @@ import React from 'react';
 import { AppContext } from '../../context/AppContext';
 
 import { NavigationButtons } from './NavigationButtons';
-import { Question } from '../Question/Question';
+import { Answer } from '../Question/Answer';
 
 export const Canvas: React.FC = () => {
   const context = React.useContext(AppContext);
@@ -31,7 +31,7 @@ export const Canvas: React.FC = () => {
 
           <div className='questionBlock'>
             {currentQuestion.answers.map((answer, index) => (
-              <Question
+              <Answer
                 currentQuestionIndex={currentQuestionIndex}
                 index={index}
                 answer={answer}
