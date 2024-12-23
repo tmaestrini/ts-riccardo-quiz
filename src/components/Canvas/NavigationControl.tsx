@@ -4,11 +4,11 @@ import { AppContext } from "../../context/AppContext";
 
 import audioSource from '../../assets/background-music-224633.mp3';
 
-type NavigationButtonProps = {
+type QuestionControlProps = {
   showCorrectAnswer: (value: boolean) => void;
 }
 
-export const NavigationButtons: React.FC<NavigationButtonProps> = (props) => {
+export const NavigationControl: React.FC<QuestionControlProps> = (props) => {
   const audio = new Audio(audioSource);
 
   const context = React.useContext(AppContext);
@@ -34,11 +34,11 @@ export const NavigationButtons: React.FC<NavigationButtonProps> = (props) => {
   }
 
   return (
-    <>
+    <div className="navigationControl">
       <Button onClick={setPreviousQuestion}>Vorherige Frage</Button>
       <Button onClick={setNextQuestion}>Nächste Frage</Button>
       <Button appearance='primary' onClick={showCorrectAnswer}>Auflösen</Button>
-    </>
+    </div>
   )
 
 }          

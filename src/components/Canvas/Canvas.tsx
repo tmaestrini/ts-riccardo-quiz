@@ -2,7 +2,7 @@ import { FluentProvider, webDarkTheme } from '@fluentui/react-components';
 import React from 'react';
 import { AppContext } from '../../context/AppContext';
 import { AnswerBlock } from '../Question/Answer';
-import { NavigationButtons } from './NavigationButtons';
+import { NavigationControl } from './NavigationControl';
 import { QuestionBlock } from '../Question/Question';
 
 export const Canvas: React.FC = () => {
@@ -32,7 +32,7 @@ export const Canvas: React.FC = () => {
           ))}
         </div>
 
-        <NavigationButtons showCorrectAnswer={showCorrectAnswer} />
+        <NavigationControl showCorrectAnswer={showCorrectAnswer} />
       </div>
     </FluentProvider>
   );
