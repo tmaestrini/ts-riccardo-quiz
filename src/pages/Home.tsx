@@ -1,5 +1,5 @@
 import jwLogo from '../assets/Jurassic-World-Emblem.png'
-import { Canvas } from '../components/common/Canvas'
+import { Canvas } from '../components/Canvas/Canvas'
 
 export default function Home() {
   
