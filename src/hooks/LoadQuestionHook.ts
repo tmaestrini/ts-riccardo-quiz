@@ -19,9 +19,9 @@ export default function LoadQuestionsHook(startQuestionByNumber: number) {
           answers: [
             answer1.trim(),
             answer2.trim(),
-            answer3.trim()
+            answer3.trim(),
           ],
-          correctAnswer: parseInt(correctAnswer.trim())
+          correctAnswer: correctAnswer.trim(),
         } as Question;
       });
       const filteredQuestions = startQuestionByNumber ? parsedQuestions.filter(question => question.number >= startQuestionByNumber) : parsedQuestions;

@@ -3,5 +3,5 @@ export interface Question {
   level: string;
   question: string;
   answers: string[];
-  correctAnswer: number;
+  correctAnswer: string;
 }
