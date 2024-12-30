@@ -7,7 +7,7 @@ export default function LoadQuestionsHook(startQuestionByNumber: number) {
 
   useMemo(() => {
     async function readDataFromCSV() {
-      const questions = await fetch('../questions/questions.csv');
+      const questions = await fetch('../data/questions.csv');
       const csvText = await questions.text();
       const rows = csvText.split('\n').filter(row => row.trim());
       const parsedQuestions: Question[] = rows.map(row => {

@@ -19,7 +19,7 @@ export const Canvas: React.FC = () => {
     <FluentProvider theme={webDarkTheme} style={{ backgroundColor: 'rgba(255, 255, 255, 0.1)' }}>
       <div>
         <QuestionBlock currentQuestion={currentQuestion} />
-        
+
         <div className='answerBlock'>
           {currentQuestion?.answers.map((answer, index) => (
             <AnswerBlock
@@ -32,7 +32,9 @@ export const Canvas: React.FC = () => {
           ))}
         </div>
 
-        <NavigationControl showCorrectAnswer={showCorrectAnswer} />
+        {currentQuestion &&
+          <NavigationControl showCorrectAnswer={showCorrectAnswer} />
+        }
       </div>
     </FluentProvider>
   );

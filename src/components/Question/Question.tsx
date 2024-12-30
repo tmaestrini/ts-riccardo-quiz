@@ -13,8 +13,11 @@ export const QuestionBlock: React.FC<QuestionBlockProps> = (props) => {
     <div className="w-full">
       <Card>
         <CardHeader header={
-          <div style={{ margin: '10px auto', }}>
-            <Text weight='bold' size={900}>({currentQuestion?.number}) {currentQuestion?.question}</Text>
+          <div style={{ margin: '10px auto' }}>
+            {currentQuestion ?
+              <Text weight='bold' size={900}>({currentQuestion?.number}) {currentQuestion?.question}</Text> :
+              <Text weight='bold' size={600}>— Keine Fragen geladen —</Text>
+            }
           </div>
         } />
       </Card>
