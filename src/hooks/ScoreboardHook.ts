@@ -34,9 +34,16 @@ export default function ScoreboardHook() {
     setScoreBoard([...players.filter(p => p.number !== player.number), player].sort((a, b) => b.points - a.points));
     return scoreBoard;
   }
+  
+  function removePointForPlayer(player: Contestant): Contestant[] {
+    if(player.points >0) player.points--;
+    setScoreBoard([...players.filter(p => p.number !== player.number), player].sort((a, b) => b.points - a.points));
+    return scoreBoard;
+  }
 
   return {
     scoreBoard,
     addPoint: addPointForPlayer,
+    removePoint: removePointForPlayer,
   };
 }

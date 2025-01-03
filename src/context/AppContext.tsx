@@ -13,6 +13,7 @@ type AppContextType = {
 
   scoreBoard?: Contestant[];
   addPoint: (player: Contestant) => void;
+  removePoint: (player: Contestant) => void;
 }
 
 
@@ -22,13 +23,14 @@ export const AppContext = createContext<AppContextType>({
   setQuestion: () => { },
 
   scoreBoard: [],
-  addPoint: (player) => player.points
+  addPoint: (player) => player.points,
+  removePoint: (player) => player.points
 });
 
 export const AppContextProvider = ({ children }: { children: ReactNode }) => {
   const { questions } = LoadQuestionsHook(0);
   const [currentQuestionIndex, setQuestionIndex] = React.useState(1);
-  const {scoreBoard, addPoint} = ScoreboardHook();
+  const {scoreBoard, addPoint, removePoint} = ScoreboardHook();
 
   return <AppContext.Provider value={{
     totalQuestions: questions.length,
@@ -38,6 +40,7 @@ export const AppContextProvider = ({ children }: { children: ReactNode }) => {
 
     scoreBoard: scoreBoard,
     addPoint: (player: Contestant) => addPoint(player),
+    removePoint: (player: Contestant) => removePoint(player),
   }}>
     {children}
   </AppContext.Provider>;

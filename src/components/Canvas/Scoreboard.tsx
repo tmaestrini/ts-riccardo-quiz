@@ -17,7 +17,7 @@ const PointBalls: React.FC<{ points: number }> = ({ points }) => {
 
 export const Scoreboard: React.FC = () => {
   const context = React.useContext(AppContext);
-  const { scoreBoard, addPoint } = context;
+  const { scoreBoard, addPoint, removePoint } = context;
   const navigate = useNavigate();
 
   const columns = [
@@ -61,7 +61,10 @@ export const Scoreboard: React.FC = () => {
                   </TableCellLayout>
                 </TableCell>
                 <TableCell width={100}><PointBalls points={player.points} /></TableCell>
-                <TableCell><Button appearance='primary' onClick={() => addPoint(player)}>+1</Button></TableCell>
+                <TableCell>
+                  <Button appearance='primary' onClick={() => addPoint(player)}>+1</Button>&nbsp;
+                  <Button appearance='primary' onClick={() => removePoint(player)} disabled={player.points == 0}>–1</Button>
+                  </TableCell>
               </TableRow>
             ))}
           </TableBody>
